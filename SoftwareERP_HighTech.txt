@@ -1,0 +1,534 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include  <conio.h>
+#include <unistd.h>
+#include <locale.h>
+#include  <math.h>
+#include <string.h>
+#define TAMANHO 1001
+
+int ID_Funcionario [TAMANHO],ID_Fornecedor [TAMANHO];
+char Nome_Funcionario[TAMANHO][50],Nome_Fornecedor[TAMANHO][50],teste[TAMANHO][50],Cargo_Funcionario[TAMANHO][30];
+char CPF_Funcionario[TAMANHO][20],CNPJ_Fornecedor[TAMANHO][20];
+char telefone_Fornecedor[TAMANHO][20],Telefone_Funcionario[TAMANHO][20];
+char Sexo_Funcionario [TAMANHO],Representa_Fornecedor[TAMANHO][50],Nascimento_Funcionario[TAMANHO][20];
+int verificar2,valueMenu,escolhajogo;
+int ID_jogo[TAMANHO],Ano_Desenvolvimento[TAMANHO],Ano_Previsao[TAMANHO];
+char Nome_Projeto[TAMANHO][20],Genero_Jogo[TAMANHO][20],Modo_Jogo [TAMANHO][30],Platarforma_JOGO[TAMANHO][20],Sobre_Jogo[TAMANHO][300];
+int escolhafornecedores;
+typedef struct{
+  char login[10];
+  char senha[10];
+} pessoa; pessoa p[1];
+
+int main (void){
+ setlocale(LC_ALL, "Portuguese");
+ int escolhacadastro3;
+
+ strcpy(p[0].login,"default");
+ strcpy(p[0].senha,"1234");
+int id_jogo;
+int verificar1;
+static int continuarousair;
+ int escolhajoguinho;
+ int infinito=1;
+ void lista();
+ char nome[10],senha[10];
+void cadastro();
+   int login;
+   sleep(2);
+ printf("\t\tHighTech\n");
+ sleep(1);
+ printf("\n\tALTA QUALIDADE SEMPRE !\n");
+ sleep(1);
+ printf("\t\t -");
+ sleep(1);
+ printf("-");
+ sleep(1);
+ printf("-");
+ sleep(1);
+ printf("-");
+ sleep(1);
+ printf("-");
+ sleep(1);
+ printf("-");
+ system("cls");
+ sleep(1);
+do {
+ system("cls");
+  printf("\t\tLOGIN\n");
+  sleep(1);
+  printf("\n\n Nome de usuário: ");
+  scanf("%s", nome);
+  printf("\nSenha de usuário: ");
+  scanf("%s", senha);
+
+  if(strcmp(nome,p[0].login) !=0 || strcmp(senha,p[0].senha) != 0)
+  {
+     printf("\n NOME OU SENHA DO USUÁRIO INCORRETO");
+     sleep(2);
+     system("cls");
+     login=1;
+     system("pause");
+  }
+  if(strcmp(nome,p[0].login) ==0 && strcmp(senha,p[0].senha) == 0)
+  {
+      login=0;
+  }
+  system("cls");
+  } while(login != 0);
+
+ system("cls");
+    int id;
+    int value;
+    int escolha;
+
+do{
+    printf(" Seja Bem-Vindo à tela principal do Projeto Hightech! Pressione 1 ou 2.");
+    printf("\n\t\t    1 - Continuar | 2 - Sair \n ");
+    scanf("%i",&value);
+
+    if(value==2){
+        system("cls");
+        printf("Fechando o sistema");
+        sleep(1);
+        printf(" .");
+        sleep(1);
+        printf(".");
+        sleep(1);
+        printf(".\n");
+        return 0;
+    }
+    else if(value < 1 || value> 2)
+    {
+        printf("\nPor favor, digite um número válido.");
+        sleep(2);
+        system("cls");
+    }
+    } while(value != 1);
+
+
+        void ImprimaMensagemMenu(void);
+        ImprimaMensagemMenu();
+        printf("\n\n Informe sua Escolha: ");
+        scanf("%d",&valueMenu);
+
+
+     do{
+       if(valueMenu==1)
+       {
+        do{
+         do{
+         system("cls");
+
+
+            printf("\t\t LEMBRANDO: CUIDADO AO CADASTRAR NOVOS FUNCIONÁRIOS\n\t    LEMBRE-SE DE COLOCAR UM ID (NÚMERO) QUE AINDA NÃO FOI UTILIZADO");
+            sleep(1);
+
+
+            printf("\n\nInforme o ID do funcionário ( de 1 até 1000 )\n ");
+            scanf("%i",&id);
+            if(id <= 0 || id > 1000)
+            {
+                printf("\nNúmero Inválido. Digite Novamente");
+                sleep(2);
+
+            }
+            }while(id <= 0 || id > 1000);
+            ID_Funcionario[id]=id;
+            printf("\nInforme o Nome Completo do funcionário: ");
+            gets(Nome_Funcionario[id]);
+            gets(Nome_Funcionario[id]);
+
+            printf("\nInforme o telefone do funcionário: ");
+            scanf("%s", Telefone_Funcionario[id]);
+
+            static int verifsexo;
+               printf("\nInforme o sexo do funcionário ( m para masculino e f para feminino )\n ");
+            do{
+
+                scanf("%c",&Sexo_Funcionario[id]);
+                if(Sexo_Funcionario[id] != 'm' || Sexo_Funcionario[id] != 'f')
+                {
+                  verifsexo=1;
+                }
+                if(Sexo_Funcionario[id] == 'm' || Sexo_Funcionario[id] == 'f')
+                {
+                  verifsexo=0;
+                }
+              }while(verifsexo != 0);
+              printf("\nInforme a data de nascimento do funcionário (DIA/MÊS/ANO)\n ");
+              gets(Nascimento_Funcionario[id]);
+              gets(Nascimento_Funcionario[id]);
+              printf("\nInforme o cargo do funcionário: ");
+              gets(Cargo_Funcionario[id]);
+              printf("\nInforme o CPF do funcionário: ");
+              scanf("%s",CPF_Funcionario[id]);
+              printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+              scanf("%d",&continuarousair);
+
+              switch(continuarousair)
+              {
+               case 2:
+                  verificar1=1;
+                  void ImprimaMensagemMenu(void);
+                  ImprimaMensagemMenu();
+                  sleep(2);
+                  printf("\n\n Informe sua Escolha: ");
+                  scanf("%d",&valueMenu);
+              }
+
+
+
+            system("cls");
+            }while(verificar1 == 0);
+            }
+        if(valueMenu==2)
+      {
+          cadastro();
+      }
+        if(valueMenu==3)
+        {
+            do{
+              system("cls");
+
+             do{
+              printf("\t\t LEMBRANDO: CUIDADO AO CADASTRAR NOVOS PROJETOS\n\t    LEMBRE-SE DE COLOCAR UM NÚMERO QUE AINDA NÃO FOI UTILIZADO");
+              printf("\n\nInforme o número do projeto ( de 4 até 1000): ");
+              scanf("%d",&id_jogo);
+              if(id_jogo < 4 || id_jogo > 1000 )
+              {
+                  printf("\nNúmero Inválido. Digite Novamente");
+                  sleep(2);
+                  system("cls");
+              }
+             }while(id_jogo < 4 || id_jogo > 1000);
+              ID_jogo[id_jogo]= id_jogo;
+              printf("\nInforme o ANO de início do Desenvolvimento: ");
+              scanf("%d",&Ano_Desenvolvimento[id_jogo]);
+              printf("\nInforme o ANO de previsão para concluir o Desenvolvimento: ");
+              scanf("%d",&Ano_Previsao[id_jogo]);
+              printf("\nInforme o nome do projeto: ");
+              gets(Nome_Projeto[id_jogo]);
+              gets(Nome_Projeto[id_jogo]);
+              printf("\nInforme o(s) gênero(s) do jogo: ");
+              gets(Genero_Jogo[id_jogo]);
+              printf("\nInforme o(s) modo(s) de jogo: ");
+              gets(Modo_Jogo[id_jogo]);
+              printf("\nInforme o(s) tipo(s) de plataforma: ");
+              gets(Platarforma_JOGO[id_jogo]);
+              printf("\nInforme um pouco sobre o jogo (até 300 caracteres): ");
+              gets(Sobre_Jogo[id_jogo]);
+              printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+              scanf("%d",&escolhacadastro3);
+              void ImprimaMensagemMenu(void);
+              }while(escolhacadastro3 != 2);
+              if( escolhacadastro3 == 2)
+              {
+                  ImprimaMensagemMenu();
+                  sleep(2);
+                  printf("\n\n Informe sua Escolha: ");
+                  scanf("%d",&valueMenu);
+
+              }
+
+        }
+        if(valueMenu==4)
+        {
+                 do{
+                    system("cls");
+                    printf("PROJETO 1\n-------------------\n\n");
+                    printf("Hello Game Force");
+                    printf("\n\nInício do Desenvolvimento: 2017\n");
+                    printf("Previsão de término: 2021\n");
+                    printf("Gênero: FPS\n");
+                    printf("Modo de Jogo: Multiplayer online\n");
+                    printf("Plataformas: PC\n");
+                    printf("Sobre: Em um mundo cibernético tomado pela guerra 40 heróis estão dispostos a sacrificar as suas vidas\n");
+                    printf("em batalhas frenéticas onde eles lutam pelo que acreditam.\n");
+                    printf("\nPROJETO 2\n-------------------\n\n");
+                    printf("Karate Alligator");
+                    printf("\n\nInício do Desenvolvimento: 2019\n");
+                    printf("Previsão de término: 2023\n");
+                    printf("Gênero: Luta\n");
+                    printf("Modo de Jogo: Um Jogador, Multijogador\n");
+                    printf("Plataformas: PC\n");
+                    printf("Sobre: O jogo se passa em um mundo onde animais humanóides são campeões de seus deuses e\n");
+                    printf("lutam em torneios sangrentos, afim de provarem o seu valor. O protagonista é um jacaré que\n");
+                    printf("luta Karatê e quer provar o seu valor diante dos deuses dos rios doce.\n");
+                    printf("\nPROJETO 3\n-------------------\n\n");
+                    printf("Neumann");
+                    printf("\n\nInício do Desenvolvimento: 2020\n");
+                    printf("Previsão de término: 2024\n");
+                    printf("Gênero: RPG, Survival\n");
+                    printf("Modo de Jogo: Multiplayer Online\n");
+                    printf("Plataformas: PC\n");
+                    printf("\nSobre: uma epidemia terrível assolou Turing City, devastando boa parte da população local.\n");
+                    printf("Você é um dos sobreviventes que vive em uma cidade tomada agora por facções criminosas e\n");
+                    printf("terríveis monstros que se formaram em meio ao caos, tendo como objetivo resistir às adversidades que o assolarem.\n");
+                    lista();
+                    printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+                    scanf("%d",&escolhajoguinho);
+                   }while(escolhajoguinho != 2);
+                    if( escolhajoguinho == 2)
+                   {
+                   switch(escolhajoguinho)
+                   {
+                   case 2:
+
+                   ImprimaMensagemMenu();
+                   sleep(2);
+                   printf("\n\n Informe sua Escolha: ");
+                   scanf("%d",&valueMenu);
+
+                   }
+                   }
+
+        }
+          if(valueMenu==5)
+          {
+        do{
+              system("cls");
+        do{
+            system("cls");
+            printf("\t\t LEMBRANDO: CUIDADO AO CADASTRAR NOVOS FORNECEDORES\n\t    LEMBRE-SE DE COLOCAR UM ID (NÚMERO) QUE AINDA NÃO FOI UTILIZADO");
+            sleep(2);
+
+
+            printf("\n\nInforme o ID(número) do fornecedor ( de 1 até 1000 )\n  ");
+            scanf("%i",&id);
+            }while(id <= 0 || id > 1000);
+            ID_Fornecedor[id]=id;
+            printf("\nInforme o nome da fornecedora: ");
+            gets(Nome_Fornecedor[id]);
+            gets(Nome_Fornecedor[id]);
+
+            do{
+                printf("\nInforme o Telefone de Contato da fornecedora: ");
+                scanf("%d",&telefone_Fornecedor[id]);
+            }while(telefone_Fornecedor[id] <= 0);
+
+            printf("\nInforme o CNPJ da fornecedora: ");
+            scanf("%s",CNPJ_Fornecedor[id]);
+            printf("\nInforme o Nome Completo do representante da fornecedora: ");
+            gets(Representa_Fornecedor[id]);
+            gets(Representa_Fornecedor[id]);
+            printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+              scanf("%d",&escolhafornecedores);
+
+              if(escolhafornecedores == 2)
+              {
+
+                  verificar1=1;
+                  void ImprimaMensagemMenu(void);
+                  ImprimaMensagemMenu();
+                  sleep(2);
+                  printf("\n\n Informe sua Escolha: ");
+                  scanf("%d",&valueMenu);
+              }
+
+
+
+            system("cls");
+            }while(verificar1 == 0);
+          }
+          if(valueMenu==6)
+        {
+
+                void cadastro1();
+                cadastro1();
+        }
+          if(valueMenu == 8)
+      {
+         system("cls");
+        printf("Fechando o sistema");
+        sleep(1);
+        printf(" .");
+        sleep(1);
+        printf(".");
+        sleep(1);
+        printf(".\n");
+        return 0;
+      }
+          if(valueMenu==7)
+          {
+
+              system("cls");
+              printf("\t\t NOVO LOGIN\n");
+              printf("\n     ATENÇÃO: ESCOLHA UMA SENHA QUE SE LEMBRE  \n");
+              sleep(1);
+              printf("\n\n Novo nome de usuário: ");
+              scanf("%s", nome);
+              printf("\n Nova senha de usuário: ");
+              scanf("%s", senha);
+              strcpy(p[0].login,nome);
+              strcpy(p[0].senha,senha);
+              system("cls");
+              printf("O sistema irá reiniciar.Aperte qualquer tecla para prosseguir");
+              getch();
+              system("cls");
+              printf(" reiniciando");
+              printf(".");
+              sleep(1);
+              printf(".");
+              sleep(1);
+              printf(".");
+              sleep(1);
+              do {
+              system("cls");
+              printf("\t\tLOGIN\n");
+              sleep(1);
+  printf("\n\n Nome de usuário: ");
+  scanf("%s", nome);
+  printf("\nSenha de usuário: ");
+  scanf("%s", senha);
+
+  if(strcmp(nome,p[0].login) !=0 || strcmp(senha,p[0].senha) != 0)
+  {
+     printf("\n NOME OU SENHA DO USUÁRIO INCORRETO");
+     sleep(2);
+     system("cls");
+     login=1;
+     system("pause");
+  }
+  if(strcmp(nome,p[0].login) ==0 && strcmp(senha,p[0].senha) == 0)
+  {
+      login=0;
+  }
+  system("cls");
+  } while(login != 0);
+    ImprimaMensagemMenu();
+                  sleep(2);
+                  printf("\n\n Informe sua Escolha: ");
+                  scanf("%d",&valueMenu);
+      }
+if(valueMenu < 1 || valueMenu > 8)
+{
+      do{
+           system("cls");
+              printf("\t\tLOGIN\n");
+              sleep(1);
+  printf("\n\n Nome de usuário: ");
+  scanf("%s", nome);
+  printf("\nSenha de usuário: ");
+  scanf("%s", senha);
+
+
+  if(strcmp(nome,p[0].login) !=0 || strcmp(senha,p[0].senha) != 0)
+  {
+     printf("\n NOME OU SENHA DO USUÁRIO INCORRETO");
+     sleep(2);
+     system("cls");
+     login=1;
+     system("pause");
+  }
+  if(strcmp(nome,p[0].login) ==0 && strcmp(senha,p[0].senha) == 0)
+  {
+      login=0;
+  }
+  system("cls");
+  } while(login != 0);
+    ImprimaMensagemMenu();
+                  sleep(2);
+                  printf("\n\n Informe sua Escolha: ");
+                  scanf("%d",&valueMenu);
+
+}
+
+
+      }while(infinito==1);
+    }
+
+    void ImprimaMensagemMenu(void){
+            setlocale(LC_ALL, "Portuguese");
+            system("cls");
+            printf("\t\tMenu\n");
+            printf("\nSelecione uma das opções:\n" );
+            printf("1 - Cadastrar funcionários\n");
+            printf("2 - Consultar Funcionários\n");
+            printf("3 - Cadastrar Projeto\n");
+            printf("4 - Projetos em Desenvolvimento\n");
+            printf("5 - Cadastrar Fornecedores\n");
+            printf("6 - Consultar Fornecedores\n");
+            printf("7 - Alterar Login\n");
+            printf("8 - Fechar o Programa\n");
+            printf("\n\t(Para voltar ao login digite um número diferente destes)\n");
+}
+void ImprimaMensagemProjetos(void){
+            setlocale(LC_ALL, "Portuguese");
+            system("cls");
+            printf("\n\tLista de nossos projetos em desenvolvimento, para mais detalhes, digite o número correspondente:\n");
+            printf("\n\n1 - Hello Game Force\n");
+            printf("2 - Karate Alligator\n");
+            printf("3 - Neumann\n");
+            printf("\n\t(Digite 4 caso queira voltar)");
+    }
+void cadastro()
+{  setlocale(LC_ALL, "Portuguese");
+   static int op;
+   do{
+    do{
+    system("cls");
+    printf("\n Informe o ID(número) do funcionário que deseja verfificar ( de 1 até 1000 )\n ");
+    scanf("%d",&verificar2);
+    }while(verificar2 < 1 || verificar2 > 1000);
+    printf("\n FUNCIONÁRIO %d\n-----------------\nNome Completo: %s\nTelefone: %s\nSexo: %c\nData de nascimento: %s\nCargo: %s\nCPF: %s",verificar2,Nome_Funcionario[verificar2],Telefone_Funcionario[verificar2],Sexo_Funcionario[verificar2],Nascimento_Funcionario[verificar2],Cargo_Funcionario[verificar2],CPF_Funcionario[verificar2]);
+    printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+    scanf("%d",&op);
+    if(op == 2)
+    {
+      void ImprimaMensagemMenu(void);
+      ImprimaMensagemMenu();
+      sleep(2);
+      printf("\n\n Informe sua Escolha: ");
+      scanf("%d",&valueMenu);
+    }
+   } while(op != 2);
+}
+void lista(){
+ static int i;
+     for(i=4;i<=1000;i++)
+     {   if(Ano_Previsao[i] > 0 && Ano_Desenvolvimento[i] > 0)
+
+         {
+             printf("\nPROJETO %d\n-------------------\n\n",i);
+              printf("%s",Nome_Projeto[i]);
+              printf("\n\nInício do Desenvolvimento: %i\n",Ano_Desenvolvimento[i]);
+              printf("Previsão de término: %i\n",Ano_Previsao[i]);
+              printf("Gênero: %s\n",Genero_Jogo[i]);
+              printf("Modo de Jogo: %s\n",Modo_Jogo[i]);
+              printf("Plataformas: %s\n",Platarforma_JOGO[i]);
+              printf("\nSobre: %s\n",Sobre_Jogo[i]);
+         }
+     }
+
+
+}
+void cadastro1()
+{
+   setlocale(LC_ALL, "Portuguese");
+    static int opcao1,verificar3=1;
+   do{
+
+   do{
+    system("cls");
+    printf("\nInforme o ID(número) do fornecedor que deseja verificar ( de 1 até 1000 )\n ");
+    scanf("%d",&verificar3);
+
+    }while(verificar3 < 1 || verificar3 > 1000);
+
+    printf("\n FORNECEDOR %d\n-----------------\nNome da Fornecedora: %s\nTelefone para Contato: %i\nCNPJ: %s\nNome Representante: %s\n",verificar3,Nome_Fornecedor[verificar3],telefone_Fornecedor[verificar3],CNPJ_Fornecedor[verificar3],Representa_Fornecedor[verificar3]);
+    printf("\n\n\tDigite 2 ou um outro número (Outro número - continuar | 2 - sair)\n ");
+    scanf("%d",&opcao1);
+    if(opcao1 == 2)
+    {
+
+      void ImprimaMensagemMenu(void);
+      ImprimaMensagemMenu();
+      sleep(2);
+      printf("\n\n Informe sua Escolha: ");
+      scanf("%d",&valueMenu);
+      }
+
+   } while(opcao1 != 2);
+}
